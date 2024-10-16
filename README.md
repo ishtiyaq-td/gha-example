@@ -1,1 +1,1 @@
-# gha-example
+# GitHub Actions Example
