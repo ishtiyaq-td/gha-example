@@ -1,0 +1,14 @@
+name: Check Date
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+        
+      - name: Chck date
+        run: echo $(date)
