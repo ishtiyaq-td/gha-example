@@ -1,14 +1,21 @@
-name: Check Date
+name: Environment variable
 
 on:
-  workflow_dispatch:
-  
+  workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Thursday
+
 jobs:
-  test:
+  greeting_job:
     runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
     steps:
-      - name: Check out the code
-        uses: actions/checkout@v3
-        
-      - name: Chck date
-        run: echo $(date)
+      - name: Set system env variable
+        run: |
+          echo "SMILE=😊" >> $GITHUB_ENV 
+      - name: "Say Hello Ishtiyaq it's Thursday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK! $SMILE"
+        env:
+          First_Name: Ishtiyaq
